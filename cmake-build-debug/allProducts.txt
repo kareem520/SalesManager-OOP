@@ -1,0 +1,21 @@
+--------------Product1--------------
+12345            id
+chess            name
+k                product type
+--------------Product2--------------
+86435            id
+ring             name
+g                product type
+--------------Product3--------------
+76793            id
+meat            name
+k                product type
+--------------Product4--------------
+99764            id
+Diet Pepsi       name
+q                product type
+--------------Product5--------------
+324535            id
+Cofee            name
+q                product type
+-----------------------------------

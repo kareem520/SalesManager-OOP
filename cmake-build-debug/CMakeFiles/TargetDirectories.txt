@@ -1,0 +1,3 @@
+D:/Ask2/SalesApp/cmake-build-debug/CMakeFiles/ask.dir
+D:/Ask2/SalesApp/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Ask2/SalesApp/cmake-build-debug/CMakeFiles/rebuild_cache.dir

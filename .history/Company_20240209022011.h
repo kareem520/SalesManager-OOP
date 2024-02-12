@@ -1,0 +1,5 @@
+
+class Company: public User{
+
+
+};
