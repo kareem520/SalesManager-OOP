@@ -3,6 +3,7 @@
 #include <vector>
 #include <set>
 #include "chrono"
+#include "random"
 using namespace std;
 
 class Help {
@@ -64,20 +65,30 @@ public:
     }
 
     static string getDateNow(){
-        // Get the current time point
-        std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
+        chrono::system_clock::time_point now = std::chrono::system_clock::now();
 
         // Convert the time point to a time_t object
-        std::time_t now_c = std::chrono::system_clock::to_time_t(now);
+        time_t now_c = std::chrono::system_clock::to_time_t(now);
 
         // Convert the time_t object to a local time struct
-        std::tm* local_time = std::localtime(&now_c);
+        tm* local_time = std::localtime(&now_c);
 
 
         string str = std::asctime(local_time);
         // Print the current local time
       //  std::cout << "Current local time is: " << str;
         return str;
+    }
+    static int get_random_id(){
+        random_device rd; // Obtain a random seed from the OS entropy device
+        mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
+
+        uniform_int_distribution<int> dist(1, 100000000);
+
+        int randomNumber = dist(gen);
+
+        return randomNumber;
+
     }
 };
 

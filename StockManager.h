@@ -35,14 +35,8 @@ public:
     }
     //------------------------------------------------------admin and system oos
 
-    void this_id_is_there(string product_id){
-
-        if (stock1.ask_for_id_product(product_id)){
-            cout <<"id is there"<<endl;
-        }
-        else {
-            cout <<"\"No product with this id.\""<<endl;
-        }
+    bool this_id_is_there(string product_id) {
+        return stock1.ask_for_id_product(product_id);
     }
 
     void print_available_products(){
@@ -50,31 +44,8 @@ public:
     }
 
     //-----------------------------------------------------------------system ops
-    void buy(){
-        string id;
-        int wanted_qty;
-
-        cout << "Enter product id: ";
-        while(cin >> id) {
-            if (stock1.ask_for_id_product(id))
-                break;
-            cout << "Enter product id: ";
-        }
-
-        cout <<"Enter wanted quantity: ";
-        while(cin >> wanted_qty){
-            if (stock1.getQTY(id)<=wanted_qty) {
-                stock1.takeFromProduct(id, wanted_qty);
-                break;
-            }
-            else{
-                cout <<"Not available quantity."<<endl;
-                cout <<"our quantity in a stock: "<<stock1.getQTY(id)<<endl;
-            }
-            cout <<"Enter wanted quantity: ";
-
-        }
-        cout <<"added";
+    void buy(string id , int wanted_qty) {
+        stock1.takeFromProduct(id, wanted_qty);
     }
 
     void retrival(){
@@ -90,6 +61,16 @@ public:
         cin>>wanted_qty;
         stock1.RetrievalToProduct(id,wanted_qty);
 
+    }
+
+    bool is_available_quantity(int wanted_qty, string id){
+        return (stock1.getQTY(id)<=wanted_qty);
+    }
+    int get_available_quantity(string id){
+        return (stock1.getQTY(id));
+    }
+    const Product &Product_by_id(string id){
+        return stock1.getProduct_by_id(id);
     }
 
 

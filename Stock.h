@@ -7,6 +7,8 @@ class Stock {
     set<string>all_un_available_ids;
     ProductManager this_stock_PMG;
 
+    friend ostream &operator<<(ostream &oss,const Stock& stock);
+
 public:
 
     void readProduct(string product_id,int new_qty){
@@ -62,7 +64,6 @@ public:
 
     Product &getProduct_by_id(string product_id){
         //depends on that checked that there's this id
-
         return all_currentProducts_by_id[product_id];
     }
 
@@ -154,5 +155,19 @@ public:
         Product &product = getProduct_by_id(product_id);
         return product.getPrice();
     }
-};
 
+
+};
+ostream&operator<<(ostream &oss,const Stock& stock ){
+
+    oss << "Stock info:";
+    for (auto &prd:stock.all_currentProducts_by_id) {
+        oss <<"\n"
+            << "\n\t" << "name: " << prd.second.getName()
+            << "\n\t" << "id: " << prd.second.getId()
+            << "\n\t" << "available quantity: " << prd.second.getQty()
+            << "\n\t" << "price: " << prd.second.getPrice() << " per " << prd.second.getUnit();
+    }
+
+    return oss;
+}

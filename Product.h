@@ -90,8 +90,7 @@ public:
      string getName()const{
         return this->name;
     }
-    //virtual
-      double getPrice()const{
+    double getPrice()const{
         return this->price;
     }
      int getQty()const{
@@ -108,6 +107,7 @@ public:
         else if (this->type == ProductType::Quantity)
             return "one";
     }
+
 
 };
 

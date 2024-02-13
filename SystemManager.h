@@ -2,21 +2,12 @@
 
 class SystemManager {
 
-    //ProductManager PDMG;
     UserManager UMG;
+    SalesManager SLMG;
 
-    User *ourUser;
     void get_into_market(){
+        UMG.sign_up();
 
-        CustomerManager *CMG = &UMG.get_current_customer_manager();
-
-        if (ourUser->getEntity() == Entity::Customer){
-            Customer ourCustomer = CMG->getCustomer_by_id(ourUser->getUserId());
-            ourUser = &ourCustomer;
-        }
-        else{
-
-        }
     }
 public:
 
@@ -39,6 +30,9 @@ public:
                 UMG.sign_up();
             }
 
+            UMG.doLogin();
+            UMG.sign_up();
+            UMG.doLogin();
 
 
         }

@@ -13,42 +13,14 @@ protected:
     int userId;
     Entity user_role;
     string password;
-    static int counter;
 
 public:
   
-    User(){
-        userId =0;
-    }
 
 
-    void readUser(string email,string userName,int id){
-       this->email = email;
-       this->userName = userName;
-       this->userId = id;
-       string str; 
-       cout <<"Enter password: ";
-       cin >> str;
-       setUserPasswprd(str);
+    virtual void print() = 0;
 
-        
-    }
-    void signYourEntity(){
-        while (true){
-            cout <<"Enter:\n\tYou are a Customer-> 1\n\tYou are a administrator-> 2\n";
-            int ch; cin >> ch;
-            if (ch==1) {
-                setEntity(Entity::Customer);
-                break;
-            }
-            else if (ch==2) {
-                setEntity(Entity::admin);
-                break;
-            }
-        }
-    }
 
-    
     void setEntity(const Entity choice){
         this->user_role = choice;
     }
@@ -61,10 +33,13 @@ public:
     void setUserName(const string &userName){
         this->userName = userName;
     }
+    void setUserId(int id) {
+        this->userId = id;
+    }
+
     string getUserPassword()const{
         return this->password;
     }
-
     string getUserName()const{
         return this->userName;
     }
@@ -76,6 +51,9 @@ public:
         else "null";
 
     }
+    string getUserEmail()const{
+        return this->email;
+    }
     Entity getEntity() const {
         return this->user_role;
 
@@ -83,19 +61,11 @@ public:
     int getUserId()const{
         return this->userId;
     }
-    const User &getUser()const{
-        return *this;
-    }
-
-
-    string getUserEmail()const{
-        return this->email;
-    }
-
 };
 
 
-ostream&operator<<(ostream &oss,const User& user ){
+ostream&operator<<(ostream &oss,User* user ){
+    user->print();
     oss<<"User info:"
        <<"\n\t"<<"Email: "<<user.getUserEmail()
        <<"\n\t"<<"user id: "<<user.getUserId()

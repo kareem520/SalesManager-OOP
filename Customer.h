@@ -14,42 +14,14 @@ protected:
     string phone;
     EntityCustomer customerRole;
     Coupon discount;
-    set<string>all_orderes_ids;
-    map<string,Order>all_orderes_by_id;
 
 
 public:
 
-    Customer(){
-        //set discount zero default
-    }
-    void readCustomer(const User &MyUser){
-        string str;
-        cout <<"Hello, "<< MyUser.getUserName()
-            << " Enter your phone number: ";
-            cin >> str;
-        cout <<endl;
-        cout <<"Enter:\n\t Your are a person->1\n\t"
-            <<"You are a company->2\n";
-        int ch;
-        while (cin >> ch) {
-            if (ch == 1) {
-                setRole(EntityCustomer::person);
-                break;
-            }
-            else if (ch==2) {
-                setRole(EntityCustomer::company);
-                break;
-            }
-            else continue;
-        }
-        this->phone = str;
-        this->userName =MyUser.getUserName();
-        this->email = MyUser.getUserEmail();
-        this->userId = MyUser.getUserId();
-        this->user_role = MyUser.getEntity();
-        this->password = MyUser.getUserPassword();
-    }
+
+    virtual void print()=0;
+    virtual void sign_up_address()=0;
+    virtual void sign_up_name()=0;
 
     void setRole(EntityCustomer role){
         this->customerRole = role;

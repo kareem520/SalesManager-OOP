@@ -2,7 +2,7 @@
 #include<map>
 #include<vector>
 #include <set>
-#include "CustomerManager.h"
+#include "SalesManager.h"
 using namespace std;
 
 enum class Entity{

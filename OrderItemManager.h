@@ -2,9 +2,7 @@
 class OrderItemManager {
 
     OrderItem currentOrderItem;
-    map<string,Product>oroduct_by_order_item_id;
-    map<string,OrderItem>order_item_by_this_id;
-    ProductManager PMG;
+    map<string,OrderItem>orderItem_by_product_id;
 
 public:
 

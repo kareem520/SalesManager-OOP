@@ -127,7 +127,8 @@
 				19,
 				20,
 				21,
-				22
+				22,
+				23
 			]
 		},
 		{
@@ -162,7 +163,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "CustomerManager.h",
+			"path" : "SalesManager.h",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -254,6 +255,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "StockManager.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "ShopCart.h",
 			"sourceGroupIndex" : 0
 		}
 	],
